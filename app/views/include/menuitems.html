@@ -1,0 +1,31 @@
+
+<div class="row">
+   <div class="col-md-6">
+		<div class="jumbotron">
+		    <h3>Menu</h3><hr>
+		    <div ng-repeat = "menu in menudata">
+			    <p><span class="text-danger">{{menu.menuType}}</span></p>
+				<table class="table">
+					<thead>
+					    <tr>
+					      <th>#</th>
+					      <th>Item Name</th>
+					      <th>Price</th>
+					      <th></th>
+					    </tr>
+					</thead>
+					<tbody>
+					    <tr ng-repeat = "item in menu.menuItems">
+					      <th scope="row">{{item.sno}}</th>
+					      <td>{{item.name}}</td>
+					      <td>{{item.price}}</td>
+					      <td>
+							<button class="buyButton" ng-click="addItem(item)"><span class="glyphicon glyphicon-plus"></span></button>
+							<button class="returnButton" ng-click="subtractItem(item)" ng-disabled="showsubtract"><span class="glyphicon glyphicon-minus"></span></button>
+					      </td>
+					    </tr>
+					</tbody>
+				</table>
+		    </div>
+	    </div>
+   </div>

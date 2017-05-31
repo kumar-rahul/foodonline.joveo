@@ -1,0 +1,78 @@
+<!-- partial-home.html -->
+
+
+<div class="row">
+   <div class="col-md-6">
+		<div class="jumbotron">
+		    <h3>Menu</h3><hr>
+		    <div ng-repeat = "menu in menudata">
+			    <p><span class="text-danger">{{menu.menuType}}</span></p>
+				<table class="table">
+					<thead>
+					    <tr>
+					      <th>#</th>
+					      <th>Item Name</th>
+					      <th>Price</th>
+					      <th></th>
+					    </tr>
+					</thead>
+					<tbody>
+					    <tr ng-repeat = "item in menu.menuItems">
+					      <th scope="row">{{item.sno}}</th>
+					      <td>{{item.name}}</td>
+					      <td>{{item.price}}</td>
+					      <td>
+							<button class="buyButton" ng-click="addItem(item)"><span class="glyphicon glyphicon-plus"></span></button>
+							<button class="returnButton" ng-click="subtractItem(item)" ng-disabled="showsubtract"><span class="glyphicon glyphicon-minus"></span></button>
+					      </td>
+					    </tr>
+					</tbody>
+				</table>
+		    </div>
+	    </div>
+   </div>
+   <div class="col-md-6">
+		<div class="jumbotron">
+		    <p><span class="text-danger">Order</span></p>
+
+		    <div ng-if="orderArray.length>0">
+ 				<table class="table">
+				  <thead>
+				    <tr>
+				      <th>Item Name</th>
+				      <th>Count</th>
+				      <th>Amount</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr ng-repeat = "item in orderArray">
+				      <td>{{item.name}}</td>
+				      <td>{{item.count}}
+						<button class="buyButton" ng-click="addQty(item)"><span class="glyphicon glyphicon-plus"></span></button>
+						<button class="returnButton" ng-click="subtractQty(item)"><span class="glyphicon glyphicon-minus"></span></button>
+					  </td>
+				      <td>{{item.amount}}/-</td>
+				    </tr>
+				  </tbody>
+				</table>
+				<hr>
+			    <div class="row">
+			        <div class="col-md-4">
+			            <label for="formGroupExampleInput">Total Items</label>
+			        </div>
+			        <div class="col-md-4">
+			            <label for="formGroupExampleInput2">{{totalcount}}</label>
+			        </div>
+			        <div class="col-md-4">
+			            <label for="formGroupExampleInput2">{{totalamount}}</label>
+			        </div>
+			    </div>
+				<button type="button" class="btn btn-primary" ng-click="checkout()">CheckOut</button>
+		    </div>
+
+		    <div ng-if="ordersummary.length==0">
+		    	No Order Placed !!
+		    </div>
+		</div>
+   </div>   
+</div>

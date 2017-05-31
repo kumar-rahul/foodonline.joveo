@@ -1,0 +1,32 @@
+<!-- <div class="menu">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#">foodzonline</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ng-click="" ><span class="glyphicon glyphicon-user"></span> Home</a></li>
+        <li><a ng-click="order()"><span class="glyphicon glyphicon-log-in"></span> Order</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+ -->
+
+ <!-- partial-home.html -->
+
+<div class="jumbotron">
+    <p><span class="text-danger">{{thankyou}}</span></p><hr>
+    <div class="text-center">
+      <p>Thank You {{user.info.fname}} {{user.info.lname}}</p>
+      <p>We have received your orderId {{user.orderid}}</p>
+      <p>We will deliver your order to following address:</p>
+      <p>{{user.info.add1}}</p>
+      <p>{{user.info.add2}}</p>
+      <p>{{user.info.city}}</p>
+      <p>{{user.info.state}}</p>
+      <p>{{user.info.pin}}</p>
+      <p>{{user.info.phone}}</p>
+    </div>    
+</div>
+<button type="button" class="btn btn-primary" ng-click="goBackHome()">Go Back To Home</button>
